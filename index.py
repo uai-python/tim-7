@@ -12,10 +12,10 @@ db = SQLAlchemy(app)
 
 @app.route('/', methods=['GET','POST'])
 def index():
-    if 'user' in session:
+    if 'nama' in session:
         fetch_data = Question.query.order_by(func.rand()).limit(1).all()
-        user = session['user']
-        return render_template('web.html', data=fetch_data, user=user)
+        nama = session['nama']
+        return render_template('web.html', data=fetch_data, nama=nama)
     else:
         return redirect(url_for("login"))
 
@@ -50,7 +50,7 @@ def cek():
 @app.route('/logout')
 def logout():
     # remove the username from the session if it's there
-    session.pop('user', None)
+    session.pop('nama', None)
     return redirect(url_for('index'))
 
 @app.route('/result', methods=['POST', 'GET'])
