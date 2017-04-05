@@ -1,7 +1,7 @@
 from config import db
 
-class pemain(db.Model):
-    __tablename__ = 'guest'
+class Pemain(db.Model):
+    __tablename__ = 'pemain'
 
     id_pemain = db.Column(db.Integer, primary_key=True)
 	salut = db.Column(db.Varchar(15))
@@ -22,11 +22,11 @@ class pemain(db.Model):
         self.user = user
 
     def __repr__(self):
-        return '<Guest %r>' % self.user
+        return '<Pemain %r>' % self.user
 
 
 class Question(db.Model):
-    __tablename__ = 'question'
+    __tablename__ = 'quiz'
 
     idquestion = db.Column(db.Integer, primary_key=True)
     question = db.Column(db.String)
